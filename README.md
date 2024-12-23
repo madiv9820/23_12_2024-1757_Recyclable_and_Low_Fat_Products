@@ -14,7 +14,7 @@
         Products WHERE low_fats = 'Y' AND
         RECYCLABLE = 'Y'
         ```
-    2. **Pyspark**
+    2. **Pyspark:**
         ```python3 []
         def find_products(products: pyspark.sql.dataframe.DataFrame) -> pyspark.sql.dataframe.DataFrame:
             product_ids = products\
@@ -22,10 +22,12 @@
                             .select('product_id')
             return product_ids
         ```
-    3. **Pandas**
+    3. **Pandas:**
         ```python3 []
-        def find_products(products: pd.DataFrame) -> pd.DataFrame:
-            product_ids = products[(products['low_fats'] == 'Y') & (products['recyclable'] == 'Y')].product_id
+        def find_products_pandas(products: pd.DataFrame) -> pd.DataFrame:
+            product_ids = products[(products['low_fats'] == 'Y') &
+                                    (products['recyclable'] == 'Y')]\
+                            .product_id
             product_ids = pd.DataFrame(product_ids)
             return product_ids
         ```
